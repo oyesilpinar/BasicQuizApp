@@ -1,6 +1,5 @@
-{
-    "questions":[
-            {
+[
+    {
         "q" : "Divorce ?",
         "opt1" : "Affetmek",
         "opt2" : "Boşanmak",
@@ -35,7 +34,7 @@
         "opt3" : "Vurmak",
         "answer" : "Toplamak"
     }
-        ]
-    }
-	
-	
+
+
+
+]

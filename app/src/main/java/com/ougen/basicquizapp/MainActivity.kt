@@ -1,5 +1,6 @@
 package com.ougen.basicquizapp
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.json.JSONException
@@ -10,15 +11,10 @@ import java.nio.charset.Charset
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class MainActivity : AppCompatActivity() {
-
-
-
-
-
-
-    private var questionsList: ArrayList<Question> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         val b_opt1=findViewById<Button>(R.id.tv_opt1)
         val b_opt2=findViewById<Button>(R.id.tv_opt2)
         val b_opt3=findViewById<Button>(R.id.tv_opt3)
+        val b_next=findViewById<Button>(R.id.btn_next)
+
+
 
 
         b_opt1.setOnClickListener(View.OnClickListener { view ->
@@ -45,45 +44,40 @@ class MainActivity : AppCompatActivity() {
             // Do some work here
         })
 
+        b_next.setOnClickListener(View.OnClickListener { view ->
+            // Do some work here
+        })
 
 
+       /*
+       *
+       *
+       * String cevap
+       * opt1 cevap=Bosan
+       * opt2
+       * opt3
+       * c
+       *
+       *
+       *
+       * */
+
+    }
 
 
-        // ********************************************************************************************************************************************
-
-        var questionArraySize = 0
-        // get all question objects of selected category from json file and store in questionsList
+    fun getListFromJsonData(context: Context): List<Question> {
+        val jsonString: String?
+        val gson = Gson()
+        var questionList: List<Question> = listOf()
         try {
-            val obj = JSONObject(loadJSONFromAsset())
-            val questionArray = obj.getJSONArray("ingilizcekelimeler.json")
-            questionArraySize = questionArray.length()
-            for (i in 0 until questionArray.length()) {
-                val questionJSONObject = questionArray.getJSONObject(i)
-                val question = Question(
-                    q = questionJSONObject.getString("q"),
-                    opt1 = questionJSONObject.getString("opt1"),
-                    opt2 = questionJSONObject.getString("opt2"),
-                    opt3 = questionJSONObject.getString("opt3"),
-                    answer = questionJSONObject.getString("answer")
-
-                )
-                questionsList.add(question)
-                println(questionsList[0])
-
-
-
-            }
-        } catch (ex: JSONException) {
-            ex.printStackTrace()
+            jsonString = context.assets.open("ingilizcekelimeler.json").bufferedReader().use { it.readText()   }
+            val listQuestionType = object : TypeToken<List<Question>>() {}.type
+            questionList = gson.fromJson(jsonString,listQuestionType)
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            return questionList
         }
-
-
-
-
-
-// ********************************************************************************************************************************************
-
-
+        return questionList
 
     }
 
@@ -93,21 +87,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun loadJSONFromAsset(): String {
-        var json: String = ""
-        try {
-            val inputStream: InputStream = assets.open("ingilizcekelimeler.json")
-            val size = inputStream.available()
-            val buffer = ByteArray(size)
-            val charset: Charset = Charsets.UTF_8
-            inputStream.read(buffer)
-            inputStream.close()
-            json = String(buffer, charset)
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-        }
-        return json
-    }
+
+
+
+
+
+
+
 
 
 
