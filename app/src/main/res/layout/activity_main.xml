@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/tv_opt1"
+        android:layout_width="match_parent"
+        android:layout_above="@id/tv_opt2"
+        android:layout_height="wrap_content"
+        android:text="Cevap 1" />
+
+    <Button
+        android:id="@+id/tv_opt2"
+        android:layout_width="match_parent"
+        android:layout_above="@id/tv_opt3"
+        android:layout_height="wrap_content"
+        android:text="Cevap 2" />
+
+    <Button
+        android:id="@+id/tv_opt3"
+        android:layout_width="match_parent"
+        android:layout_above="@id/btn_next"
+        android:layout_height="wrap_content"
+        android:text="Cevap 3" />
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="GONDER"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/tv_opt1"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:text="Soru" />
+
+</RelativeLayout>
