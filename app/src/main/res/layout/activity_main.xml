@@ -10,8 +10,8 @@
     <Button
         android:id="@+id/tv_opt1"
         android:layout_width="match_parent"
-        android:layout_above="@id/tv_opt2"
         android:layout_height="wrap_content"
+        android:layout_above="@id/tv_opt2"
         android:text="Cevap 1" />
 
     <Button
