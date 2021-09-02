@@ -1,26 +1,29 @@
 package com.ougen.basicquizapp
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.io.IOException
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
-
-        var count:Int=0
+        //global olarak değişkenlerimizi tanımlıyoruz
         lateinit var tvJsonString: TextView
         lateinit var b_opt1: Button
         lateinit var b_opt2: Button
         lateinit var b_opt3: Button
-        lateinit var b_next: Button
         var currentQuestion:Int=0
+        var dogru:Int=0
+        var yanlis:Int=0
+
 
 
 
@@ -33,17 +36,13 @@ class MainActivity : AppCompatActivity() {
         b_opt1=findViewById(R.id.tv_opt1)
         b_opt2=findViewById(R.id.tv_opt2)
         b_opt3=findViewById(R.id.tv_opt3)
-        b_next=findViewById(R.id.btn_next)
 
 
+        //Json datasını çalıştırmak için gerekli fonksiyonu çagirdik
         getListFromJsonData(this)
 
+        //soruları gösteren fonksiyonu cagirdik
         showQuestion(currentQuestion)
-
-
-
-
-
 
 
         /*
@@ -54,25 +53,100 @@ class MainActivity : AppCompatActivity() {
         count=count+1
 
 
-         */
-               b_opt1.setOnClickListener(View.OnClickListener { view ->
-                   // Do some,work here
-               })
+         */     val questionList=getListFromJsonData(this)
+                System.out.println(questionList[currentQuestion].opt2==questionList[currentQuestion].answer)
 
-               b_opt2.setOnClickListener(View.OnClickListener { view ->
-                   // Do some work here
-               })
+               b_opt1.setOnClickListener{
+                   if (questionList[currentQuestion].opt1 == questionList[currentQuestion].answer){
+                       //dogru
+                       dogru++
 
-               b_opt3.setOnClickListener(View.OnClickListener { view ->
+                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_LONG).show()
+                   }
+                   else{
+                       //yanlis
+                       yanlis++
+                       Toast.makeText(this@MainActivity,"Yanlış! Doğru cevap: "
+                               + questionList[currentQuestion].answer,Toast.LENGTH_LONG).show()
+                   }
+
+                   //diger soruyu yükle
+                   if(currentQuestion<questionList.size-1){
+                       currentQuestion++
+                       showQuestion(currentQuestion)
+                   }
+                   else{
+                       //bitti
+                       val intent = Intent(this,EndActivity::class.java)
+                       intent.putExtra("Doğru Sayisi",dogru)
+                       intent.putExtra("Yanlis Sayisi",yanlis)
+                       startActivity(intent)
+                       finish()
+
+                   }
+
+               }
+
+               b_opt2.setOnClickListener{
+                   if (questionList[currentQuestion].opt2==(questionList[currentQuestion].answer)){
+                       //dogru
+                       dogru++
+                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_LONG).show()
+                   }
+                   else{
+                       //yanlis
+                       yanlis++
+                       Toast.makeText(this@MainActivity,"Yanlış! Doğru cevap: "
+                               + questionList[currentQuestion].answer,Toast.LENGTH_LONG).show()
+                   }
+
+                   //diger soruyu yükle
+                   if(currentQuestion<questionList.size-1){
+                       currentQuestion++
+                       showQuestion(currentQuestion)
+                   }
+                   else{
+                       //bitti
+                       val intent = Intent(this,EndActivity::class.java)
+                       intent.putExtra("Doğru Sayisi",dogru)
+                       intent.putExtra("Yanlis Sayisi",yanlis)
+                       startActivity(intent)
+                       finish()
+
+                   }
+               }
+
+               b_opt3.setOnClickListener{
+
+                   if (questionList[currentQuestion].opt3==(questionList[currentQuestion].answer)){
+                       //dogru
+                       dogru++
+                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_LONG).show()
+                   }
+                   else{
+                       //yanlis
+                       yanlis++
+                       Toast.makeText(this@MainActivity,"Yanlış! Doğru cevap: "
+                               + questionList[currentQuestion].answer,Toast.LENGTH_LONG).show()
+                   }
+
+                   //diger soruyu yükle
+                     if(currentQuestion<questionList.size-1){
+                       currentQuestion++
+                       showQuestion(currentQuestion)
+                     }
+                     else{
+                       //bitti
+                       val intent = Intent(this,EndActivity::class.java)
+                       intent.putExtra("Doğru Sayisi",dogru)
+                       intent.putExtra("Yanlis Sayisi",yanlis)
+                       startActivity(intent)
+                       finish()
+
+                       }
 
 
-
-               })
-
-               b_next.setOnClickListener(View.OnClickListener { view ->
-
-
-               })
+               }
 
 
     }
@@ -85,6 +159,8 @@ class MainActivity : AppCompatActivity() {
         b_opt1.setText(questionList.get(number).opt1)
         b_opt2.setText(questionList.get(number).opt2)
         b_opt3.setText(questionList.get(number).opt3)
+        System.out.println(dogru)
+        System.out.println(yanlis)
 
 
     }
