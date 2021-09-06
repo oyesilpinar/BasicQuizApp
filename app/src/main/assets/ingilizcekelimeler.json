@@ -33,8 +33,118 @@
         "opt2" : "Toplamak",
         "opt3" : "Vurmak",
         "answer" : "Toplamak"
+    },
+    {
+        "q" : "Lentil Soup ?",
+        "opt1" : "Ezogelin",
+        "opt2" : "Mercimek Çorbası",
+        "opt3" : "Tavuk Çorbası",
+        "answer" : "Mercimek Çorbası"
+    },
+    {
+        "q" : "Generous ?",
+        "opt1" : "Cömert",
+        "opt2" : "Cimri",
+        "opt3" : "Güvenilir",
+        "answer" : "Cömert"
+    },
+    {
+        "q" : "Grilled Chicken ?",
+        "opt1" : "Mangal Tavuk",
+        "opt2" : "Közde Tavuk",
+        "opt3" : "Izgara Tavuk",
+        "answer" : "Izgara Tavuk"
+    },
+    {
+        "q" : "Argue ?",
+        "opt1" : "Yarışmak",
+        "opt2" : "Oynamak",
+        "opt3" : "Tartışmak",
+        "answer" : "Tartışmak"
+    },
+    {
+        "q" : "Caring ?",
+        "opt1" : "İlgili",
+        "opt2" : "Güvenilir",
+        "opt3" : "Şefkatli",
+        "answer" : "İlgili"
+    },
+    {
+        "q" : "Count on ?",
+        "opt1" : "Güvenilmez",
+        "opt2" : "Güvenilir",
+        "opt3" : "Saygılı",
+        "answer" : "Güvenilir"
+    },
+    {
+        "q" : "Close Friends",
+        "opt1" : "Sarı Arkadaş",
+        "opt2" : "Yakın Arkadaş",
+        "opt3" : "Kapalı Arkadaş",
+        "answer" : "Yakın Arkadaş"
+    },
+    {
+        "q" : "Buddy ?",
+        "opt1" : "Ahbap",
+        "opt2" : "Vücut",
+        "opt3" : "Dümen",
+        "answer" : "Ahbap"
+    },
+    {
+        "q" : "Attend ?",
+        "opt1" : "Katılmak",
+        "opt2" : "Reddetmek",
+        "opt3" : "Mazeret",
+        "answer" : "Katılmak"
+    },
+    {
+        "q" : "Loyal ?",
+        "opt1" : "Kibar",
+        "opt2" : "Eğlenceli",
+        "opt3" : "Sadık",
+        "answer" : "Sadık"
+    },
+    {
+        "q" : "Miss a chance",
+        "opt1" : "Hızlı",
+        "opt2" : "Yarışmak",
+        "opt3" : "Fırsatı Kaçırmak",
+        "answer" : "Fırsatı Kaçırmak"
+    },
+    {
+        "q" : "Fair",
+        "opt1" : "Korku",
+        "opt2" : "Kibirli",
+        "opt3" : "Adil",
+        "answer" : "Adil"
+    },
+    {
+        "q" : "Refuse ?",
+        "opt1" : "Özür dilemek",
+        "opt2" : "Reddetmek",
+        "opt3" : "Mazeret",
+        "answer" : "Reddetmek"
+    },
+    {
+        "q" : "Beans ?",
+        "opt1" : "Fasulye",
+        "opt2" : "Barbunya",
+        "opt3" : "Mercimek",
+        "answer" : "Fasulye"
+    },
+    {
+        "q" : "Deer ?",
+        "opt1" : "Geyik",
+        "opt2" : "Sincap",
+        "opt3" : "Domuz",
+        "answer" : "Geyik"
+    },
+    {
+        "q" : "Windy Weather ?",
+        "opt1" : "Sisli Hava",
+        "opt2" : "Rüzgarlı Hava",
+        "opt3" : "Bulutlu Hava",
+        "answer" : "Rüzgarlı Hava"
     }
-
-
 
 ]

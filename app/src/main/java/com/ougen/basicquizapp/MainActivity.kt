@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.io.IOException
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -27,7 +26,6 @@ class MainActivity : AppCompatActivity(){
 
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -40,40 +38,35 @@ class MainActivity : AppCompatActivity(){
 
         //Json datasını çalıştırmak için gerekli fonksiyonu çagirdik
         getListFromJsonData(this)
-
+        val questionList=getListFromJsonData(this)
+        //Soruları karıştırdık ve gösterme ekranına gönderdik
+        val a=getListFromJsonData(this).shuffled()
         //soruları gösteren fonksiyonu cagirdik
-        showQuestion(currentQuestion)
+        showQuestion(currentQuestion,a)
 
 
-        /*
-        var  obj = questionList.get(count)
-        b_opt1.setText(obj.opt1)
-        b_opt2.setText(obj.opt2)
-        b_opt3.setText(obj.opt3)
-        count=count+1
 
 
-         */     val questionList=getListFromJsonData(this)
-                System.out.println(questionList[currentQuestion].opt2==questionList[currentQuestion].answer)
+
 
                b_opt1.setOnClickListener{
-                   if (questionList[currentQuestion].opt1 == questionList[currentQuestion].answer){
+                   if (a[currentQuestion].opt1 == a[currentQuestion].answer){
                        //dogru
                        dogru++
 
-                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_LONG).show()
+                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_SHORT).show()
                    }
                    else{
                        //yanlis
                        yanlis++
                        Toast.makeText(this@MainActivity,"Yanlış! Doğru cevap: "
-                               + questionList[currentQuestion].answer,Toast.LENGTH_LONG).show()
+                               + a[currentQuestion].answer,Toast.LENGTH_SHORT).show()
                    }
 
                    //diger soruyu yükle
                    if(currentQuestion<questionList.size-1){
                        currentQuestion++
-                       showQuestion(currentQuestion)
+                       showQuestion(currentQuestion, a)
                    }
                    else{
                        //bitti
@@ -88,22 +81,22 @@ class MainActivity : AppCompatActivity(){
                }
 
                b_opt2.setOnClickListener{
-                   if (questionList[currentQuestion].opt2==(questionList[currentQuestion].answer)){
+                   if (a[currentQuestion].opt2==(a[currentQuestion].answer)){
                        //dogru
                        dogru++
-                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_LONG).show()
+                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_SHORT).show()
                    }
                    else{
                        //yanlis
                        yanlis++
                        Toast.makeText(this@MainActivity,"Yanlış! Doğru cevap: "
-                               + questionList[currentQuestion].answer,Toast.LENGTH_LONG).show()
+                               + a[currentQuestion].answer,Toast.LENGTH_SHORT).show()
                    }
 
                    //diger soruyu yükle
                    if(currentQuestion<questionList.size-1){
                        currentQuestion++
-                       showQuestion(currentQuestion)
+                       showQuestion(currentQuestion, a)
                    }
                    else{
                        //bitti
@@ -118,22 +111,22 @@ class MainActivity : AppCompatActivity(){
 
                b_opt3.setOnClickListener{
 
-                   if (questionList[currentQuestion].opt3==(questionList[currentQuestion].answer)){
+                   if (a[currentQuestion].opt3==(a[currentQuestion].answer)){
                        //dogru
                        dogru++
-                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_LONG).show()
+                       Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_SHORT).show()
                    }
                    else{
                        //yanlis
                        yanlis++
                        Toast.makeText(this@MainActivity,"Yanlış! Doğru cevap: "
-                               + questionList[currentQuestion].answer,Toast.LENGTH_LONG).show()
+                               + a[currentQuestion].answer,Toast.LENGTH_SHORT).show()
                    }
 
                    //diger soruyu yükle
                      if(currentQuestion<questionList.size-1){
                        currentQuestion++
-                       showQuestion(currentQuestion)
+                       showQuestion(currentQuestion,a)
                      }
                      else{
                        //bitti
@@ -153,14 +146,16 @@ class MainActivity : AppCompatActivity(){
 
 
 
-    fun showQuestion(number:Int){
-        val questionList=getListFromJsonData(this)
-        tvJsonString.setText(questionList.get(number).q)
-        b_opt1.setText(questionList.get(number).opt1)
-        b_opt2.setText(questionList.get(number).opt2)
-        b_opt3.setText(questionList.get(number).opt3)
-        System.out.println(dogru)
-        System.out.println(yanlis)
+    fun showQuestion(number: Int, a: List<Question>){
+
+
+
+
+        tvJsonString.setText(a.get(number).q)
+        b_opt1.setText(a.get(number).opt1)
+        b_opt2.setText(a.get(number).opt2)
+        b_opt3.setText(a.get(number).opt3)
+
 
 
     }
