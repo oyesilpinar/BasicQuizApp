@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicQuizApp">
         <activity
+            android:name=".BeginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true" />
+        <activity
             android:name=".EndActivity"
             android:exported="true" />
         <activity
