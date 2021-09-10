@@ -17,8 +17,6 @@ class BeginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_begin)
 
-        tvBasla=find
-
 
 
         val intent = Intent(this,MainActivity::class.java)
