@@ -9,12 +9,12 @@
 
 
     <ImageButton
-        android:id="@id/settingsright"
+        android:id="@+id/settingsright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:src="@drawable/ic_baseline_settings_24"
-        android:contentDescription="@string/button_icon_desc" />
+        android:contentDescription="Settings"
+        android:src="@drawable/ic_baseline_settings_24" />
 
    <Button
       android:id="@+id/tv_basla"
@@ -22,8 +22,9 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center"
       android:gravity="center"
-       android:layout_centerInParent="true"
+      android:layout_centerInParent="true"
       android:text="@string/basla" />
+
 
 
 

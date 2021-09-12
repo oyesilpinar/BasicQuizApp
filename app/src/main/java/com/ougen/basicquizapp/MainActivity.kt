@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(){
         getListFromJsonData(this)
         val questionList=getListFromJsonData(this)
         //Soruları karıştırdık ve gösterme ekranına gönderdik
-        val a=getListFromJsonData(this).shuffled()
+        val a=getListFromJsonData(this)
         //soruları gösteren fonksiyonu cagirdik
         showQuestion(currentQuestion,a)
 
@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity(){
                        dogru++
 
                        Toast.makeText(this@MainActivity,"Doğru",Toast.LENGTH_SHORT).show()
+
                    }
                    else{
                        //yanlis
