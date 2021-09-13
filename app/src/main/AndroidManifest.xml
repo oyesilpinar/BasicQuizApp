@@ -12,7 +12,9 @@
         android:theme="@style/Theme.BasicQuizApp">
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:configChanges="uiMode"/>
+
 
         <activity
             android:name=".EndActivity"

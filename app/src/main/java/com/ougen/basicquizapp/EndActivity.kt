@@ -17,7 +17,7 @@ class EndActivity : AppCompatActivity() {
         var dogru:Int=intent.getIntExtra("Doğru Sayisi",0)
         var yanlis:Int=intent.getIntExtra("Yanlis Sayisi",0)
 
-        tv_result.setText("Doğru: " + dogru + "\nYanlış: " + yanlis)
+        tv_result.setText("Doğru: " + dogru + "\n\n\nYanlış: " + yanlis)
 
     }
 

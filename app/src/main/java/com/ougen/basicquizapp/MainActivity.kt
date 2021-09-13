@@ -12,7 +12,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.util.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity(configuration: Any) : AppCompatActivity(){
 
         //global olarak değişkenlerimizi tanımlıyoruz
         lateinit var tvJsonString: TextView
@@ -25,10 +25,11 @@ class MainActivity : AppCompatActivity(){
 
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        
 
         tvJsonString=findViewById(R.id.tv_question)
         b_opt1=findViewById(R.id.tv_opt1)
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity(){
         val questionList=getListFromJsonData(this)
         //Soruları karıştırdık ve gösterme ekranına gönderdik
         val a=getListFromJsonData(this)
+
         //soruları gösteren fonksiyonu cagirdik
         showQuestion(currentQuestion,a)
 
@@ -166,8 +168,7 @@ class MainActivity : AppCompatActivity(){
     fun getListFromJsonData(context: Context): List<Question> {
         val jsonString: String?
         val gson = Gson()
-        var questionList: List<Question> = listOf()
-
+        var questionList: List<Question> =listOf()
         try {
             jsonString = context.assets.open("ingilizcekelimeler.json").bufferedReader().use { it.readText()   }
             val listQuestionType = object : TypeToken<List<Question>>() {}.type
@@ -185,10 +186,6 @@ class MainActivity : AppCompatActivity(){
 
 
 
-
-
-
-
-
-
 }
+
+
